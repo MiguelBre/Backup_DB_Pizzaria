@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for macos11 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_pizzaria_corleonne
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,36 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `_prisma_migrations`
+--
+
+DROP TABLE IF EXISTS `_prisma_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `_prisma_migrations` (
+  `id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `checksum` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `finished_at` datetime(3) DEFAULT NULL,
+  `migration_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logs` text COLLATE utf8mb4_unicode_ci,
+  `rolled_back_at` datetime(3) DEFAULT NULL,
+  `started_at` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `applied_steps_count` int unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `_prisma_migrations`
+--
+
+LOCK TABLES `_prisma_migrations` WRITE;
+/*!40000 ALTER TABLE `_prisma_migrations` DISABLE KEYS */;
+INSERT INTO `_prisma_migrations` VALUES ('ec9b3654-aee5-4cd0-a228-43d8c9894a92','6a7b084f5b319ca994d8a478b6cf8980b8eb054264fbdf579861d57cf5f76691','2022-12-12 17:10:51.321','20221212171051_migration_teste',NULL,NULL,'2022-12-12 17:10:51.304',1);
+/*!40000 ALTER TABLE `_prisma_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `tbl_administrador`
@@ -105,31 +135,6 @@ INSERT INTO `tbl_bebida_x_tamanho` VALUES (13,22,7),(14,23,7),(15,27,7),(16,22,8
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbl_ingrediente`
---
-
-DROP TABLE IF EXISTS `tbl_ingrediente`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_ingrediente` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_ingrediente`
---
-
-LOCK TABLES `tbl_ingrediente` WRITE;
-/*!40000 ALTER TABLE `tbl_ingrediente` DISABLE KEYS */;
-INSERT INTO `tbl_ingrediente` VALUES (1,'Mussarela'),(2,'Calabresa'),(3,'Catupiry'),(4,'Presunto'),(5,'Pepperoni'),(6,'Cebola'),(7,'Milho'),(8,'Frango'),(9,'Atum'),(10,'Ovo Cozido'),(11,'Palmito'),(12,'Ervilha'),(13,'Cheddar'),(14,'Gorgonzola'),(15,'Bacon'),(16,'Tomate'),(17,'Parmesão'),(18,'Provolone'),(19,'Orégano'),(20,'Azeitona verde'),(21,'Manjericão'),(22,'Carne seca'),(23,'Champignon'),(24,'Shitake'),(25,'Shimeji'),(26,'Brigadeiro'),(27,'Goiabada'),(28,'Abacaxi'),(29,'Chocolate'),(30,'Chocolate branco'),(31,'Morango'),(32,'Banana'),(33,'Açúcar'),(34,'Granulado'),(35,'Azeitona Preta');
-/*!40000 ALTER TABLE `tbl_ingrediente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tbl_mensagem`
 --
 
@@ -191,36 +196,6 @@ LOCK TABLES `tbl_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_pizza` DISABLE KEYS */;
 INSERT INTO `tbl_pizza` VALUES (7,NULL,'https://img77.uenicdn.com/image/upload/v1538467832/service_images/shutterstock_633097292.jpg',1,1),(8,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',2,1),(9,NULL,'https://img.freepik.com/fotos-premium/pizza-de-calabresa-em-prato-de-madeira-isolada_239245-2380.jpg?w=2000',3,1);
 /*!40000 ALTER TABLE `tbl_pizza` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tbl_pizza_ingrediente`
---
-
-DROP TABLE IF EXISTS `tbl_pizza_ingrediente`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_pizza_ingrediente` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_ingrediente` int NOT NULL,
-  `id_pizza` int NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `FK_ingredient_ingrediente_pizza` (`id_ingrediente`),
-  KEY `FK_pizza_ingrediente_pizza` (`id_pizza`),
-  CONSTRAINT `FK_ingredient_ingrediente_pizza` FOREIGN KEY (`id_ingrediente`) REFERENCES `tbl_ingrediente` (`id`),
-  CONSTRAINT `FK_pizza_ingrediente_pizza` FOREIGN KEY (`id_pizza`) REFERENCES `tbl_pizza` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_pizza_ingrediente`
---
-
-LOCK TABLES `tbl_pizza_ingrediente` WRITE;
-/*!40000 ALTER TABLE `tbl_pizza_ingrediente` DISABLE KEYS */;
-INSERT INTO `tbl_pizza_ingrediente` VALUES (17,1,7),(18,35,7),(19,2,8),(20,6,8),(21,20,8),(22,1,9),(23,2,9),(24,20,9);
-/*!40000 ALTER TABLE `tbl_pizza_ingrediente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -328,7 +303,7 @@ CREATE TABLE `tbl_tamanho_pizza` (
 
 LOCK TABLES `tbl_tamanho_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_tamanho_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_tamanho_pizza` VALUES (5,'Grande',39.99),(6,'Broto',22.99),(10,'JsuisAmado',59.99);
+INSERT INTO `tbl_tamanho_pizza` VALUES (5,'Grande',39.99),(6,'Broto',22.99);
 /*!40000 ALTER TABLE `tbl_tamanho_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,7 +378,7 @@ CREATE TABLE `tbl_tipo_pizza` (
 
 LOCK TABLES `tbl_tipo_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce'),(5,'TipoRetardo');
+INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce');
 /*!40000 ALTER TABLE `tbl_tipo_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -416,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12 12:41:58
+-- Dump completed on 2022-12-12 14:25:23
