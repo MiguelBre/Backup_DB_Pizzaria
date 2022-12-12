@@ -180,7 +180,7 @@ CREATE TABLE `tbl_pizza` (
   KEY `FK_tipo_pizza_pizza` (`id_tipo`),
   CONSTRAINT `FK_produto_pizza` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id`),
   CONSTRAINT `FK_tipo_pizza_pizza` FOREIGN KEY (`id_tipo`) REFERENCES `tbl_tipo_pizza` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `tbl_pizza_x_tamanho` (
   KEY `FK_pizza` (`id_pizza`),
   CONSTRAINT `FK_pizza` FOREIGN KEY (`id_pizza`) REFERENCES `tbl_pizza` (`id`),
   CONSTRAINT `FK_tamanho_pizza` FOREIGN KEY (`id_tamanho`) REFERENCES `tbl_tamanho_pizza` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,7 +319,7 @@ CREATE TABLE `tbl_tamanho_pizza` (
   `preco` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -328,7 +328,7 @@ CREATE TABLE `tbl_tamanho_pizza` (
 
 LOCK TABLES `tbl_tamanho_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_tamanho_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_tamanho_pizza` VALUES (5,'Grande',39.99),(6,'Broto',22.99);
+INSERT INTO `tbl_tamanho_pizza` VALUES (5,'Grande',39.99),(6,'Broto',22.99),(10,'JsuisAmado',59.99);
 /*!40000 ALTER TABLE `tbl_tamanho_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,7 +394,7 @@ CREATE TABLE `tbl_tipo_pizza` (
   `tipo` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -403,7 +403,7 @@ CREATE TABLE `tbl_tipo_pizza` (
 
 LOCK TABLES `tbl_tipo_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce'),(3,'TipoDeidara');
+INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce'),(5,'TipoRetardo');
 /*!40000 ALTER TABLE `tbl_tipo_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -416,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12  8:24:32
+-- Dump completed on 2022-12-12 12:41:58
