@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_pizzaria_corleonne
 -- ------------------------------------------------------
--- Server version	8.0.20
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `_prisma_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `_prisma_migrations` (
-  `id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `checksum` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `checksum` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `finished_at` datetime(3) DEFAULT NULL,
-  `migration_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `logs` text COLLATE utf8mb4_unicode_ci,
+  `migration_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `rolled_back_at` datetime(3) DEFAULT NULL,
   `started_at` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `applied_steps_count` int unsigned NOT NULL DEFAULT '0',
@@ -60,7 +60,7 @@ CREATE TABLE `tbl_administrador` (
   `senha` varchar(40) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `tbl_administrador` (
 
 LOCK TABLES `tbl_administrador` WRITE;
 /*!40000 ALTER TABLE `tbl_administrador` DISABLE KEYS */;
-INSERT INTO `tbl_administrador` VALUES (1,'Miguel','Bressan','114b2c863b2d755d852626bfc8c1e07a','25d55ad283aa400af464c76d713c07ad');
+INSERT INTO `tbl_administrador` VALUES (2,'Leonardo','Guidorizzi','a6be022f54d2dbb6564169e8ead232a4','81dc9bdb52d04dc20036dbd8313ed055'),(5,'Teste','Admin','6dd206930b51c48354ed82412bd39192','cfeaad6fd55f393b56abc57e60c94ac9'),(6,'Miguel','Bressan','114b2c863b2d755d852626bfc8c1e07a','4297f44b13955235245b2497399d7a93'),(7,'Bla','Bla Bla','3052964980b947903205a4af5c4c9165','df5ea29924d39c3be8785734f13169c6');
 /*!40000 ALTER TABLE `tbl_administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +153,7 @@ CREATE TABLE `tbl_mensagem` (
   UNIQUE KEY `id` (`id`),
   KEY `FK_tipo_mensagem` (`id_tipo`),
   CONSTRAINT `FK_tipo_mensagem` FOREIGN KEY (`id_tipo`) REFERENCES `tbl_tipo_mensagem` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `tbl_mensagem` (
 
 LOCK TABLES `tbl_mensagem` WRITE;
 /*!40000 ALTER TABLE `tbl_mensagem` DISABLE KEYS */;
-INSERT INTO `tbl_mensagem` VALUES (1,'Césio Miranda','cesiomiranda@email.com','11920391124',NULL,1,'bla bla bla qualquer coisa e fds');
+INSERT INTO `tbl_mensagem` VALUES (2,'Josiel Silva','josielsilva@email.com','11920391124','undefined',2,'bla bla bla qualquer coisa e fds!');
 /*!40000 ALTER TABLE `tbl_mensagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +242,7 @@ CREATE TABLE `tbl_produto` (
   `desconto` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +251,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (1,'Pizza Mussarela','A massa circular é coberta com molho de tomate, queijo mussarela e um pouco de orégano e duas ou três azeitonas',NULL),(2,'Pizza Calabresa','Uma massa coberta com molho de tomate e recheio de calabresa e cebola',NULL),(3,'Pizza Toscana','Massa de pizza coberta com molho de tomate e recheio de calabresa em rodelas e queijo mussarela',NULL),(4,'Coca-cola','Bebida gaseificada',NULL),(5,'Guaraná Antártica','Bebida gaseificada com sabor de guaraná',NULL),(6,'Pizza Pepperoni','A massa circular é coberta com molho de tomate, queijo mussarela e um pouco de orégano e duas ou três azeitonas',NULL);
+INSERT INTO `tbl_produto` VALUES (1,'Pizza Mussarela','A massa circular é coberta com molho de tomate, queijo mussarela e um pouco de orégano e duas ou três azeitonas',NULL),(2,'Pizza Calabresa','Uma massa coberta com molho de tomate e recheio de calabresa e cebola',NULL),(3,'Pizza Toscana','Massa de pizza coberta com molho de tomate e recheio de calabresa em rodelas e queijo mussarela',NULL),(4,'Coca-Cola','Bebida gaseificada sabor cola',NULL),(5,'Guaraná Antártica','Bebida gaseificada com sabor de guaraná',NULL),(6,'Pizza Pepperoni','Massa de pizza coberta com uma camada de molho de tomate, com recheio de queijo mussarela e rodelas de pepperoni',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,7 +344,7 @@ CREATE TABLE `tbl_tipo_mensagem` (
   `tipo` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12 14:25:23
+-- Dump completed on 2022-12-13  5:31:20
