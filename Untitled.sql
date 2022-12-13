@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for macos11 (x86_64)
 --
 -- Host: localhost    Database: db_pizzaria_corleonne
 -- ------------------------------------------------------
@@ -60,7 +60,7 @@ CREATE TABLE `tbl_administrador` (
   `senha` varchar(40) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `tbl_administrador` (
 
 LOCK TABLES `tbl_administrador` WRITE;
 /*!40000 ALTER TABLE `tbl_administrador` DISABLE KEYS */;
-INSERT INTO `tbl_administrador` VALUES (2,'Leonardo','Guidorizzi','a6be022f54d2dbb6564169e8ead232a4','81dc9bdb52d04dc20036dbd8313ed055'),(5,'Teste','Admin','6dd206930b51c48354ed82412bd39192','cfeaad6fd55f393b56abc57e60c94ac9'),(6,'Miguel','Bressan','114b2c863b2d755d852626bfc8c1e07a','4297f44b13955235245b2497399d7a93'),(7,'Bla','Bla Bla','3052964980b947903205a4af5c4c9165','df5ea29924d39c3be8785734f13169c6');
+INSERT INTO `tbl_administrador` VALUES (2,'Leonardo','Guidorizzi','a6be022f54d2dbb6564169e8ead232a4','81dc9bdb52d04dc20036dbd8313ed055'),(5,'Teste','Admin','6dd206930b51c48354ed82412bd39192','cfeaad6fd55f393b56abc57e60c94ac9'),(6,'Miguel','Bressan','114b2c863b2d755d852626bfc8c1e07a','4297f44b13955235245b2497399d7a93'),(8,'Zezinho','da Silva','9fbfdf0ce9c78b36b11a4baf179ce82f','fae0b27c451c728867a567e8c1bb4e53');
 /*!40000 ALTER TABLE `tbl_administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `tbl_pizza` (
   KEY `FK_tipo_pizza_pizza` (`id_tipo`),
   CONSTRAINT `FK_produto_pizza` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id`),
   CONSTRAINT `FK_tipo_pizza_pizza` FOREIGN KEY (`id_tipo`) REFERENCES `tbl_tipo_pizza` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `tbl_pizza` (
 
 LOCK TABLES `tbl_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_pizza` VALUES (7,NULL,'https://img77.uenicdn.com/image/upload/v1538467832/service_images/shutterstock_633097292.jpg',1,1),(8,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',2,1),(9,NULL,'https://img.freepik.com/fotos-premium/pizza-de-calabresa-em-prato-de-madeira-isolada_239245-2380.jpg?w=2000',3,1);
+INSERT INTO `tbl_pizza` VALUES (7,NULL,'https://img77.uenicdn.com/image/upload/v1538467832/service_images/shutterstock_633097292.jpg',1,1),(8,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',2,1),(9,NULL,'https://img.freepik.com/fotos-premium/pizza-de-calabresa-em-prato-de-madeira-isolada_239245-2380.jpg?w=2000',3,1),(11,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',6,1),(12,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',8,1),(13,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',8,1),(14,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',9,1),(15,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',10,6),(16,NULL,'https://pizzariadesucesso.com/wp-content/uploads/2018/06/pizza-calabresa-choppodromo.jpg',11,6);
 /*!40000 ALTER TABLE `tbl_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +242,7 @@ CREATE TABLE `tbl_produto` (
   `desconto` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +251,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (1,'Pizza Mussarela','A massa circular é coberta com molho de tomate, queijo mussarela e um pouco de orégano e duas ou três azeitonas',NULL),(2,'Pizza Calabresa','Uma massa coberta com molho de tomate e recheio de calabresa e cebola',NULL),(3,'Pizza Toscana','Massa de pizza coberta com molho de tomate e recheio de calabresa em rodelas e queijo mussarela',NULL),(4,'Coca-Cola','Bebida gaseificada sabor cola',NULL),(5,'Guaraná Antártica','Bebida gaseificada com sabor de guaraná',NULL),(6,'Pizza Pepperoni','Massa de pizza coberta com uma camada de molho de tomate, com recheio de queijo mussarela e rodelas de pepperoni',NULL);
+INSERT INTO `tbl_produto` VALUES (1,'Pizza Mussarela','A massa circular é coberta com molho de tomate, queijo mussarela e um pouco de orégano e duas ou três azeitonas',NULL),(2,'Pizza Calabresa','Uma massa coberta com molho de tomate e recheio de calabresa e cebola',NULL),(3,'Pizza Toscana','Massa de pizza coberta com molho de tomate e recheio de calabresa em rodelas e queijo mussarela',NULL),(4,'Coca-Cola','Bebida gaseificada sabor cola',NULL),(5,'Guaraná Antártica','Bebida gaseificada com sabor de guaraná',NULL),(6,'Pizza Pepperoni','Massa de pizza coberta com uma camada de molho de tomate, com recheio de queijo mussarela e rodelas de pepperoni',NULL),(8,'Pizza Atum','Uma massa coberta com molho de tomate e recheio de atum e cebola',NULL),(9,'Pizza Atum','Uma massa coberta com molho de tomate e recheio de atum e cebola',NULL),(10,'Pizza Atum','Uma massa coberta com molho de tomate e recheio de atum e cebola',NULL),(11,'Cachorro Quente','Lorem ipsum dolor sit amet. Rem consequuntur recusandae qui nesciunt accusantium At quia autem ut illum velit. Aut distinctio repudiandae aut natus doloremque nam fugit odit eos ratione tenetur ea reprehenderit rerum! In aliquid enim ut eius quae et voluptas officiis et pariatur officiis. Est dolor quisquam est iure aspernatur cum ipsam dolore. Eum dicta molestiae est dolores culpa qui labore nemo. Id culpa maiores et quisquam labore ab deserunt blanditiis non quia nisi? Sit nesciunt minima At expedita illo et ipsam officiis?',10),(12,'Cachorro Quente','Lorem ipsum dolor sit amet. Rem consequuntur recusandae qui nesciunt accusantium At quia autem ut illum velit. Aut distinctio repudiandae aut natus doloremque nam fugit odit eos ratione tenetur ea reprehenderit rerum! In aliquid enim ut eius quae et voluptas officiis et pariatur officiis. Est dolor quisquam est iure aspernatur cum ipsam dolore. Eum dicta molestiae est dolores culpa qui labore nemo. Id culpa maiores et quisquam labore ab deserunt blanditiis non quia nisi? Sit nesciunt minima At expedita illo et ipsam officiis?',10);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,7 +369,7 @@ CREATE TABLE `tbl_tipo_pizza` (
   `tipo` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -378,7 +378,7 @@ CREATE TABLE `tbl_tipo_pizza` (
 
 LOCK TABLES `tbl_tipo_pizza` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_pizza` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce');
+INSERT INTO `tbl_tipo_pizza` VALUES (1,'Salgada'),(2,'Doce'),(6,'Kids');
 /*!40000 ALTER TABLE `tbl_tipo_pizza` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -391,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-13  5:31:20
+-- Dump completed on 2022-12-13 11:26:26
